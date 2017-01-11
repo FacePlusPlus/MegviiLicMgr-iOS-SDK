@@ -1,0 +1,299 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		140FF1201D8E975F00013A3E /* libMegviiLicenseManager-0.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 140FF11F1D8E975F00013A3E /* libMegviiLicenseManager-0.2.0.a */; };
+		146C28811D7E5E7400124368 /* MGLicenseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 146C28801D7E5E7400124368 /* MGLicenseManager.m */; };
+		146C28821D7E5E7900124368 /* MGLicenseManager.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 146C287F1D7E5E7400124368 /* MGLicenseManager.h */; };
+		14FFF2AC1E24CACC00A5A7EF /* MGLicenseCommon.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 14FFF2AB1E24C80800A5A7EF /* MGLicenseCommon.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		146C286A1D7E5D3000124368 /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				14FFF2AC1E24CACC00A5A7EF /* MGLicenseCommon.h in Copy Files */,
+				146C28821D7E5E7900124368 /* MGLicenseManager.h in Copy Files */,
+			);
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		140FF11F1D8E975F00013A3E /* libMegviiLicenseManager-0.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libMegviiLicenseManager-0.2.0.a"; sourceTree = "<group>"; };
+		146C286C1D7E5D3000124368 /* libMGLicMgrSDK-0.2.0.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libMGLicMgrSDK-0.2.0.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		146C287A1D7E5DDD00124368 /* MG_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MG_Common.h; sourceTree = "<group>"; };
+		146C287C1D7E5DDD00124368 /* MG_LicenseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MG_LicenseManager.h; sourceTree = "<group>"; };
+		146C287F1D7E5E7400124368 /* MGLicenseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLicenseManager.h; sourceTree = "<group>"; };
+		146C28801D7E5E7400124368 /* MGLicenseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGLicenseManager.m; sourceTree = "<group>"; };
+		14FFF2AB1E24C80800A5A7EF /* MGLicenseCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGLicenseCommon.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		146C28691D7E5D3000124368 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				140FF1201D8E975F00013A3E /* libMegviiLicenseManager-0.2.0.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		146C28631D7E5D3000124368 = {
+			isa = PBXGroup;
+			children = (
+				146C28781D7E5DDD00124368 /* licenseSDK */,
+				146C286E1D7E5D3000124368 /* MGMobileSDKAuth */,
+				146C286D1D7E5D3000124368 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		146C286D1D7E5D3000124368 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				146C286C1D7E5D3000124368 /* libMGLicMgrSDK-0.2.0.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		146C286E1D7E5D3000124368 /* MGMobileSDKAuth */ = {
+			isa = PBXGroup;
+			children = (
+				14FFF2AB1E24C80800A5A7EF /* MGLicenseCommon.h */,
+				146C287F1D7E5E7400124368 /* MGLicenseManager.h */,
+				146C28801D7E5E7400124368 /* MGLicenseManager.m */,
+			);
+			path = MGMobileSDKAuth;
+			sourceTree = "<group>";
+		};
+		146C28781D7E5DDD00124368 /* licenseSDK */ = {
+			isa = PBXGroup;
+			children = (
+				140FF11F1D8E975F00013A3E /* libMegviiLicenseManager-0.2.0.a */,
+				146C287A1D7E5DDD00124368 /* MG_Common.h */,
+				146C287C1D7E5DDD00124368 /* MG_LicenseManager.h */,
+			);
+			path = licenseSDK;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		146C286B1D7E5D3000124368 /* MGLicMgrSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 146C28751D7E5D3000124368 /* Build configuration list for PBXNativeTarget "MGLicMgrSDK" */;
+			buildPhases = (
+				146C28681D7E5D3000124368 /* Sources */,
+				146C286A1D7E5D3000124368 /* Copy Files */,
+				146C28691D7E5D3000124368 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MGLicMgrSDK;
+			productName = MGMobileSDKAuth;
+			productReference = 146C286C1D7E5D3000124368 /* libMGLicMgrSDK-0.2.0.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		146C28641D7E5D3000124368 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = megvii;
+				TargetAttributes = {
+					146C286B1D7E5D3000124368 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = 146C28671D7E5D3000124368 /* Build configuration list for PBXProject "MGLicMgrSDK" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 146C28631D7E5D3000124368;
+			productRefGroup = 146C286D1D7E5D3000124368 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				146C286B1D7E5D3000124368 /* MGLicMgrSDK */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		146C28681D7E5D3000124368 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				146C28811D7E5E7400124368 /* MGLicenseManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		146C28731D7E5D3000124368 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		146C28741D7E5D3000124368 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		146C28761D7E5D3000124368 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 0.2.0;
+				DEPLOYMENT_POSTPROCESSING = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/licenseSDK",
+				);
+				OTHER_CFLAGS = "-fembed-bitcode";
+				OTHER_LDFLAGS = "";
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME)-${CURRENT_PROJECT_VERSION}";
+				PRODUCT_NAME = "$(TARGET_NAME)-${CURRENT_PROJECT_VERSION}";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		146C28771D7E5D3000124368 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 0.2.0;
+				DEPLOYMENT_POSTPROCESSING = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/licenseSDK",
+				);
+				OTHER_CFLAGS = "-fembed-bitcode";
+				OTHER_LDFLAGS = "";
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME)-${CURRENT_PROJECT_VERSION}";
+				PRODUCT_NAME = "$(TARGET_NAME)-${CURRENT_PROJECT_VERSION}";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		146C28671D7E5D3000124368 /* Build configuration list for PBXProject "MGLicMgrSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				146C28731D7E5D3000124368 /* Debug */,
+				146C28741D7E5D3000124368 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		146C28751D7E5D3000124368 /* Build configuration list for PBXNativeTarget "MGLicMgrSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				146C28761D7E5D3000124368 /* Debug */,
+				146C28771D7E5D3000124368 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 146C28641D7E5D3000124368 /* Project object */;
+}
