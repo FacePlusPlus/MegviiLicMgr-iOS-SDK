@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:MGMobileAuthSDKTest/MGMobileAuthSDKTest.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:MGMobileSDKAuth/MGMobileSDKAuth.xcodeproj">
+      location = "group:/Users/seven/Desktop/MegviiLicMgr-iOS-SDK/MGMobileSDKAuth/MGLicMgrSDK.xcodeproj">
    </FileRef>
 </Workspace>

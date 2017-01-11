@@ -30,7 +30,7 @@
 
 /* Begin PBXFileReference section */
 		140FF11F1D8E975F00013A3E /* libMegviiLicenseManager-0.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libMegviiLicenseManager-0.2.0.a"; sourceTree = "<group>"; };
-		146C286C1D7E5D3000124368 /* libMGMobileSDKAuth-0.2.0.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libMGMobileSDKAuth-0.2.0.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		146C286C1D7E5D3000124368 /* libMGLicMgrSDK-0.2.0.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libMGLicMgrSDK-0.2.0.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		146C287A1D7E5DDD00124368 /* MG_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MG_Common.h; sourceTree = "<group>"; };
 		146C287C1D7E5DDD00124368 /* MG_LicenseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MG_LicenseManager.h; sourceTree = "<group>"; };
 		146C287F1D7E5E7400124368 /* MGLicenseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLicenseManager.h; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 		146C286D1D7E5D3000124368 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				146C286C1D7E5D3000124368 /* libMGMobileSDKAuth-0.2.0.a */,
+				146C286C1D7E5D3000124368 /* libMGLicMgrSDK-0.2.0.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,9 +90,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		146C286B1D7E5D3000124368 /* MGMobileSDKAuth */ = {
+		146C286B1D7E5D3000124368 /* MGLicMgrSDK */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 146C28751D7E5D3000124368 /* Build configuration list for PBXNativeTarget "MGMobileSDKAuth" */;
+			buildConfigurationList = 146C28751D7E5D3000124368 /* Build configuration list for PBXNativeTarget "MGLicMgrSDK" */;
 			buildPhases = (
 				146C28681D7E5D3000124368 /* Sources */,
 				146C286A1D7E5D3000124368 /* Copy Files */,
@@ -102,9 +102,9 @@
 			);
 			dependencies = (
 			);
-			name = MGMobileSDKAuth;
+			name = MGLicMgrSDK;
 			productName = MGMobileSDKAuth;
-			productReference = 146C286C1D7E5D3000124368 /* libMGMobileSDKAuth-0.2.0.a */;
+			productReference = 146C286C1D7E5D3000124368 /* libMGLicMgrSDK-0.2.0.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -121,7 +121,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 146C28671D7E5D3000124368 /* Build configuration list for PBXProject "MGMobileSDKAuth" */;
+			buildConfigurationList = 146C28671D7E5D3000124368 /* Build configuration list for PBXProject "MGLicMgrSDK" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -133,7 +133,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				146C286B1D7E5D3000124368 /* MGMobileSDKAuth */,
+				146C286B1D7E5D3000124368 /* MGLicMgrSDK */,
 			);
 		};
 /* End PBXProject section */
@@ -275,7 +275,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		146C28671D7E5D3000124368 /* Build configuration list for PBXProject "MGMobileSDKAuth" */ = {
+		146C28671D7E5D3000124368 /* Build configuration list for PBXProject "MGLicMgrSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				146C28731D7E5D3000124368 /* Debug */,
@@ -284,7 +284,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		146C28751D7E5D3000124368 /* Build configuration list for PBXNativeTarget "MGMobileSDKAuth" */ = {
+		146C28751D7E5D3000124368 /* Build configuration list for PBXNativeTarget "MGLicMgrSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				146C28761D7E5D3000124368 /* Debug */,
