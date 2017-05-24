@@ -45,7 +45,8 @@
                                            candidate:(NSArray <NSNumber *>*)APIName
                                               apiKey:(NSString *)apiKey
                                            apiSecret:(NSString *)apiSecret
-                                              finish:(void(^)(BOOL License, NSError *error))finish;
+                                             isChina:(BOOL)isChina
+                                              finish:(void(^)(BOOL License, NSError *error))complete;
 
 
 

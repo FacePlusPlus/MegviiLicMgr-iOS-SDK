@@ -56,11 +56,12 @@
 }
 
 + (NSURLSessionTask *)takeLicenseFromNetwokrDuration:(MGLicenseDuration)duration
-                                  UUID:(NSString *)UUID
-                             candidate:(NSArray <NSNumber *>*)APIName
-                                apiKey:(NSString *)apiKey
-                             apiSecret:(NSString *)apiSecret
-                                finish:(void(^)(bool License, NSError *error))finish{
+                                                UUID:(NSString *)UUID
+                                           candidate:(NSArray <NSNumber *>*)APIName
+                                              apiKey:(NSString *)apiKey
+                                           apiSecret:(NSString *)apiSecret
+                                             isChina:(BOOL)isChina
+                                              finish:(void(^)(bool License, NSError *error))complete{
     
     NSString *contextString = [MGLicenseManager getContextWithDuration:duration
                                                                   UUID:UUID
@@ -77,7 +78,12 @@
     NSString *postString = [postArray componentsJoinedByString:@"&"];
     NSData *postData = [postString dataUsingEncoding:NSUTF8StringEncoding];
     
-    NSURL *tempURL = [NSURL URLWithString:MG_LICENSE_API];
+    NSURL *tempURL = nil;
+    if (isChina) {
+        [NSURL URLWithString:MG_LICENSE_API_CN];
+    }else{
+        [NSURL URLWithString:MG_LICENSE_API_US];
+    }
     NSMutableURLRequest *netRequest = [NSMutableURLRequest requestWithURL:tempURL
                                                               cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                           timeoutInterval:10];
@@ -91,6 +97,7 @@
                                                    completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                                                        BOOL success = NO;
                                                        NSError *returnError = nil;
+                                                       NSLog(@"%d --%@ -- %@", data.length, response, error);
                                                        
                                                        if (!error){
                                                            NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -112,8 +119,8 @@
                                                            returnError = error;
                                                        }
                                                        
-                                                       if (finish) {
-                                                           finish(success, returnError);
+                                                       if (complete) {
+                                                           complete(success, returnError);
                                                        }
                                                    }];
     [dataTask resume];
