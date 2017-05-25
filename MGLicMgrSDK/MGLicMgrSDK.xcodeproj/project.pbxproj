@@ -30,7 +30,7 @@
 
 /* Begin PBXFileReference section */
 		140FF11F1D8E975F00013A3E /* libMegviiLicenseManager-0.3.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libMegviiLicenseManager-0.3.0.a"; sourceTree = "<group>"; };
-		146C286C1D7E5D3000124368 /* libMGLicMgrSDK-0.2.0.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libMGLicMgrSDK-0.2.0.a"; path = "libMGLicMgrSDK-0.3.0.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		146C286C1D7E5D3000124368 /* libMGLicMgrSDK-0.3.0.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libMGLicMgrSDK-0.3.0.a"; path = "libMGLicMgrSDK-0.3.0.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		146C287A1D7E5DDD00124368 /* MG_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MG_Common.h; sourceTree = "<group>"; };
 		146C287C1D7E5DDD00124368 /* MG_LicenseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MG_LicenseManager.h; sourceTree = "<group>"; };
 		146C287F1D7E5E7400124368 /* MGLicenseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLicenseManager.h; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 		146C286D1D7E5D3000124368 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				146C286C1D7E5D3000124368 /* libMGLicMgrSDK-0.2.0.a */,
+				146C286C1D7E5D3000124368 /* libMGLicMgrSDK-0.3.0.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,7 +104,7 @@
 			);
 			name = MGLicMgrSDK;
 			productName = MGMobileSDKAuth;
-			productReference = 146C286C1D7E5D3000124368 /* libMGLicMgrSDK-0.2.0.a */;
+			productReference = 146C286C1D7E5D3000124368 /* libMGLicMgrSDK-0.3.0.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
