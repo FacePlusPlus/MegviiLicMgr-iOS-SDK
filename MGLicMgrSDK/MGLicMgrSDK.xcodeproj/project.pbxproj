@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		140FF1201D8E975F00013A3E /* libMegviiLicenseManager-0.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 140FF11F1D8E975F00013A3E /* libMegviiLicenseManager-0.2.0.a */; };
+		140FF1201D8E975F00013A3E /* libMegviiLicenseManager-0.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 140FF11F1D8E975F00013A3E /* libMegviiLicenseManager-0.3.0.a */; };
 		146C28811D7E5E7400124368 /* MGLicenseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 146C28801D7E5E7400124368 /* MGLicenseManager.m */; };
 		146C28821D7E5E7900124368 /* MGLicenseManager.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 146C287F1D7E5E7400124368 /* MGLicenseManager.h */; };
 		14FFF2AC1E24CACC00A5A7EF /* MGLicenseCommon.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 14FFF2AB1E24C80800A5A7EF /* MGLicenseCommon.h */; };
@@ -29,8 +29,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		140FF11F1D8E975F00013A3E /* libMegviiLicenseManager-0.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libMegviiLicenseManager-0.2.0.a"; sourceTree = "<group>"; };
-		146C286C1D7E5D3000124368 /* libMGLicMgrSDK-0.2.0.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libMGLicMgrSDK-0.2.0.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		140FF11F1D8E975F00013A3E /* libMegviiLicenseManager-0.3.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libMegviiLicenseManager-0.3.0.a"; sourceTree = "<group>"; };
+		146C286C1D7E5D3000124368 /* libMGLicMgrSDK-0.2.0.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libMGLicMgrSDK-0.2.0.a"; path = "libMGLicMgrSDK-0.3.0.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		146C287A1D7E5DDD00124368 /* MG_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MG_Common.h; sourceTree = "<group>"; };
 		146C287C1D7E5DDD00124368 /* MG_LicenseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MG_LicenseManager.h; sourceTree = "<group>"; };
 		146C287F1D7E5E7400124368 /* MGLicenseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLicenseManager.h; sourceTree = "<group>"; };
@@ -43,7 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				140FF1201D8E975F00013A3E /* libMegviiLicenseManager-0.2.0.a in Frameworks */,
+				140FF1201D8E975F00013A3E /* libMegviiLicenseManager-0.3.0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,7 +80,7 @@
 		146C28781D7E5DDD00124368 /* licenseSDK */ = {
 			isa = PBXGroup;
 			children = (
-				140FF11F1D8E975F00013A3E /* libMegviiLicenseManager-0.2.0.a */,
+				140FF11F1D8E975F00013A3E /* libMegviiLicenseManager-0.3.0.a */,
 				146C287A1D7E5DDD00124368 /* MG_Common.h */,
 				146C287C1D7E5DDD00124368 /* MG_LicenseManager.h */,
 			);
