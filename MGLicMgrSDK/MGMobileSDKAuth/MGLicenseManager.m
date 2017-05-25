@@ -9,12 +9,19 @@
 #import "MGLicenseManager.h"
 #import "MG_Common.h"
 #import "MG_LicenseManager.h"
+#import "MGLicenseCommon.h"
+
+
+
+#define TWITTERFON_FORM_BOUNDARY    @"lei2beedoo4peinoz1auva5hieXi9Ieghiawo2zaeZaikujuoNoo3ahphahr6oDi"
+#define MPBOUNDARY                  @"--lei2beedoo4peinoz1auva5hieXi9Ieghiawo2zaeZaikujuoNoo3ahphahr6oDi"
+#define ENDMPBOUNDARY               @"--lei2beedoo4peinoz1auva5hieXi9Ieghiawo2zaeZaikujuoNoo3ahphahr6oDi--"
+
 
 @implementation MGLicenseManager
 
-+ (NSString*)getContextWithDuration:(MGLicenseDuration)duration
-                               UUID:(NSString *)UUID
-                          candidate:(NSArray <NSNumber *>*)APIName{
++ (NSString*)getContextWithUUID:(NSString *)UUID
+                      candidate:(NSArray <NSNumber *>*)APIName{
     const char *uuidChar =  [UUID cStringUsingEncoding:NSUTF8StringEncoding];
     
     int32_t stringLength = 0;
@@ -37,7 +44,7 @@
         return nil;
     }
     NSString *contextString = [NSString stringWithCString:contextData encoding:NSUTF8StringEncoding];
-
+    
     return contextString;
 }
 
@@ -55,21 +62,22 @@
     return NO;
 }
 
-+ (NSURLSessionTask *)takeLicenseFromNetwokrDuration:(MGLicenseDuration)duration
-                                                UUID:(NSString *)UUID
-                                           candidate:(NSArray <NSNumber *>*)APIName
-                                              apiKey:(NSString *)apiKey
-                                           apiSecret:(NSString *)apiSecret
-                                             isChina:(BOOL)isChina
-                                              finish:(void(^)(bool License, NSError *error))complete{
++ (NSURLSessionTask *)takeLicenseFromNetwokrUUID:(NSString *)UUID
+                                       candidate:(NSNumber *)APIName
+                                         sdkType:(NSString *)sdkType
+                                          apiKey:(NSString *)apiKey
+                                       apiSecret:(NSString *)apiSecret
+                                         isChina:(BOOL)isChina
+                                          finish:(void(^)(bool License, NSError *error))complete{
     
-    NSString *contextString = [MGLicenseManager getContextWithDuration:duration
-                                                                  UUID:UUID
-                                                             candidate:APIName];
+    NSString *contextString = [MGLicenseManager getContextWithUUID:UUID
+                                                         candidate:@[APIName]];
     
     NSDictionary *parameters = @{@"auth_msg":contextString,
                                  @"api_key":apiKey,
-                                 @"api_secret":apiSecret};
+                                 @"api_secret":apiSecret,
+                                 @"auth_duration": MG_LICENSE_API_DURATION,
+                                 @"sdk_type":sdkType};
     
     NSMutableArray *postArray = [NSMutableArray array];
     [parameters enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *obj, BOOL *stop) {
@@ -80,13 +88,14 @@
     
     NSURL *tempURL = nil;
     if (isChina) {
-        [NSURL URLWithString:MG_LICENSE_API_CN];
+        tempURL = [NSURL URLWithString:MG_LICENSE_API_CN];
     }else{
-        [NSURL URLWithString:MG_LICENSE_API_US];
+        tempURL = [NSURL URLWithString:MG_LICENSE_API_US];
     }
+
     NSMutableURLRequest *netRequest = [NSMutableURLRequest requestWithURL:tempURL
                                                               cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                          timeoutInterval:10];
+                                                          timeoutInterval:15];
     [netRequest setHTTPMethod:@"POST"];
     [netRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [netRequest setHTTPBody:postData];
@@ -97,8 +106,10 @@
                                                    completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                                                        BOOL success = NO;
                                                        NSError *returnError = nil;
-                                                       NSLog(@"%d --%@ -- %@", data.length, response, error);
                                                        
+                                                       NSInteger code = ((NSHTTPURLResponse *)response).statusCode;
+                                                       NSLog(@"【%zi】 --%@ -- %@", code, response, error);
+
                                                        if (!error){
                                                            NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
 
