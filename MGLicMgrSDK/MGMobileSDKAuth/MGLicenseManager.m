@@ -7,10 +7,7 @@
 //
 
 #import "MGLicenseManager.h"
-#import "MG_Common.h"
 #import "MG_LicenseManager.h"
-#import "MGLicenseCommon.h"
-
 
 
 #define TWITTERFON_FORM_BOUNDARY    @"lei2beedoo4peinoz1auva5hieXi9Ieghiawo2zaeZaikujuoNoo3ahphahr6oDi"
@@ -64,21 +61,31 @@
 
 + (NSURLSessionTask *)takeLicenseFromNetwokrUUID:(NSString *)UUID
                                        candidate:(NSNumber *)APIName
-                                         sdkType:(NSString *)sdkType
+                                         sdkType:(MGSDKType)sdkType
                                           apiKey:(NSString *)apiKey
                                        apiSecret:(NSString *)apiSecret
-                                         isChina:(BOOL)isChina
+                                     apiDuration:(MGAPIDuration)duration
+                                       URLString:(NSString *)url
                                           finish:(void(^)(bool License, NSError *error))complete{
     
     NSString *contextString = [MGLicenseManager getContextWithUUID:UUID
                                                          candidate:@[APIName]];
+    NSString *sdkStr = @"";
+    if (MGSDKTypeIDCard == sdkType) {
+        sdkStr = @"IDCard";
+    } else {
+        sdkStr = @"Landmark";
+    }
+    NSString *durationStr = [NSString stringWithFormat:@"%ld",(long)duration];
     
+    
+    NSLog(@"%ld",(long)duration);
     NSDictionary *parameters = @{@"auth_msg":contextString,
                                  @"api_key":apiKey,
                                  @"api_secret":apiSecret,
-                                 @"auth_duration": MG_LICENSE_API_DURATION,
-                                 @"sdk_type":sdkType};
-    
+                                 @"auth_duration": durationStr,
+                                 @"sdk_type":sdkStr};
+    NSLog(@"%@",parameters);
     NSMutableArray *postArray = [NSMutableArray array];
     [parameters enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *obj, BOOL *stop) {
         [postArray addObject:[NSString stringWithFormat:@"%@=%@", key, [self percentEscapeString:obj]]];
@@ -86,12 +93,7 @@
     NSString *postString = [postArray componentsJoinedByString:@"&"];
     NSData *postData = [postString dataUsingEncoding:NSUTF8StringEncoding];
     
-    NSURL *tempURL = nil;
-    if (isChina) {
-        tempURL = [NSURL URLWithString:MG_LICENSE_API_CN];
-    }else{
-        tempURL = [NSURL URLWithString:MG_LICENSE_API_US];
-    }
+    NSURL *tempURL = [NSURL URLWithString:url];
 
     NSMutableURLRequest *netRequest = [NSMutableURLRequest requestWithURL:tempURL
                                                               cachePolicy:NSURLRequestUseProtocolCachePolicy
