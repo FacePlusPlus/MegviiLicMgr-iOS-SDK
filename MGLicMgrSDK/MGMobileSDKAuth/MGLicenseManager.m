@@ -10,66 +10,29 @@
 #import "MG_LicenseManager.h"
 
 
-#define TWITTERFON_FORM_BOUNDARY    @"lei2beedoo4peinoz1auva5hieXi9Ieghiawo2zaeZaikujuoNoo3ahphahr6oDi"
-#define MPBOUNDARY                  @"--lei2beedoo4peinoz1auva5hieXi9Ieghiawo2zaeZaikujuoNoo3ahphahr6oDi"
-#define ENDMPBOUNDARY               @"--lei2beedoo4peinoz1auva5hieXi9Ieghiawo2zaeZaikujuoNoo3ahphahr6oDi--"
-
-
 @implementation MGLicenseManager
 
-+ (NSString*)getContextWithUUID:(NSString *)UUID
-                      candidate:(NSArray <NSNumber *>*)APIName{
-    const char *uuidChar =  [UUID cStringUsingEncoding:NSUTF8StringEncoding];
++ (NSDate *)getExpiretime:(NSString *)version {
+    const char * vChar = [version UTF8String];
+    MG_UINT64 expireTiem;
+    mg_licmgr.GetExpiretime(vChar, &expireTiem);
     
-    int32_t stringLength = 0;
-    const char* contextData = NULL;
+    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:expireTiem];
     
-    MG_RETCODE contextCode = MG_RETCODE_FAILED;
-    
-    if (APIName.count == 0){
-    }else if (APIName.count == 1) {
-        contextCode = mg_licmgr.GetContext(MG_LICMGR_DURATION_30DAYS, uuidChar, &contextData, &stringLength, [APIName[0] integerValue],MG_END_ARG);
-    }else if (APIName.count == 2){
-        contextCode = mg_licmgr.GetContext(MG_LICMGR_DURATION_30DAYS, uuidChar, &contextData, &stringLength, [APIName[0] integerValue],[APIName[1] integerValue],MG_END_ARG);
-    }else if (APIName.count == 3){
-        contextCode = mg_licmgr.GetContext(MG_LICMGR_DURATION_30DAYS, uuidChar, &contextData, &stringLength, [APIName[0] integerValue],[APIName[1] integerValue],[APIName[2] integerValue],MG_END_ARG);
-    }else if (APIName.count == 4){
-        contextCode = mg_licmgr.GetContext(MG_LICMGR_DURATION_30DAYS, uuidChar, &contextData, &stringLength, [APIName[0] integerValue],[APIName[1] integerValue],[APIName[2] integerValue],[APIName[3] integerValue],MG_END_ARG);
-    }
-    
-    if (contextCode != MG_RETCODE_OK) {
-        return nil;
-    }
-    NSString *contextString = [NSString stringWithCString:contextData encoding:NSUTF8StringEncoding];
-    
-    return contextString;
-}
-
-+ (BOOL)setLicense:(NSString*) license{
-    
-    MG_RETCODE contextCode = MG_RETCODE_FAILED;
-
-    const char *tempStr =  [license cStringUsingEncoding:NSUTF8StringEncoding];
-    if (tempStr) {
-      contextCode = mg_licmgr.SetLicence(tempStr, (int32_t)license.length);
-    }
-    if (contextCode == MG_RETCODE_OK) {
-        return YES;
-    }
-    return NO;
+    return confromTimesp;
 }
 
 + (NSURLSessionTask *)takeLicenseFromNetwokrUUID:(NSString *)UUID
-                                       candidate:(NSNumber *)APIName
+                                         version:(NSString *)version
                                          sdkType:(MGSDKType)sdkType
                                           apiKey:(NSString *)apiKey
                                        apiSecret:(NSString *)apiSecret
                                      apiDuration:(MGAPIDuration)duration
                                        URLString:(NSString *)url
                                           finish:(void(^)(bool License, NSError *error))complete{
+
+    NSString *contextString = [MGLicenseManager getContextWithUUID:UUID version:version];
     
-    NSString *contextString = [MGLicenseManager getContextWithUUID:UUID
-                                                         candidate:@[APIName]];
     NSString *sdkStr = @"";
     if (MGSDKTypeIDCard == sdkType) {
         sdkStr = @"IDCard";
@@ -78,14 +41,12 @@
     }
     NSString *durationStr = [NSString stringWithFormat:@"%ld",(long)duration];
     
-    
-    NSLog(@"%ld",(long)duration);
     NSDictionary *parameters = @{@"auth_msg":contextString,
                                  @"api_key":apiKey,
                                  @"api_secret":apiSecret,
                                  @"auth_duration": durationStr,
                                  @"sdk_type":sdkStr};
-    NSLog(@"%@",parameters);
+//    MG_LICENSE_LOG(@"parameters = %@",parameters);
     NSMutableArray *postArray = [NSMutableArray array];
     [parameters enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *obj, BOOL *stop) {
         [postArray addObject:[NSString stringWithFormat:@"%@=%@", key, [self percentEscapeString:obj]]];
@@ -109,10 +70,9 @@
                                                        BOOL success = NO;
                                                        NSError *returnError = nil;
                                                        
-                                                       NSInteger code = ((NSHTTPURLResponse *)response).statusCode;
-                                                       NSLog(@"【%zi】 --%@ -- %@", code, response, error);
-
-                                                       if (!error){
+//                                                       NSInteger code = ((NSHTTPURLResponse *)response).statusCode;
+//                                                       MG_LICENSE_LOG(@"【%zi】 --%@ -- %@", code, response, error);
+                                                       if (!error) {
                                                            NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
 
                                                            if (result == NULL) {
@@ -120,7 +80,7 @@
 
                                                                if (string) {
                                                                    success = [MGLicenseManager setLicense:string];
-                                                               }else{
+                                                               } else {
                                                                    returnError = [NSError errorWithDomain:NSCocoaErrorDomain
                                                                                                      code:101
                                                                                                  userInfo:@{@"messsage":@"服务器返回数据解析错误！"}];
@@ -138,6 +98,38 @@
                                                    }];
     [dataTask resume];
     return dataTask;
+}
+
++ (NSString *)getContextWithUUID:(NSString *)UUID
+                         version:(NSString *)version {
+    const char *uuidChar =  [UUID cStringUsingEncoding:NSUTF8StringEncoding];
+    
+    int32_t stringLength = 0;
+    const char* contextData = NULL;
+    const char * vChar = [version UTF8String];
+    MG_RETCODE contextCode = MG_RETCODE_FAILED;
+    contextCode = mg_licmgr.GetContext(MG_LICMGR_DURATION_30DAYS, uuidChar, &contextData, &stringLength, vChar, MG_END_ARG);
+    
+    if (contextCode != MG_RETCODE_OK) {
+        return nil;
+    }
+    NSString *contextString = [NSString stringWithCString:contextData encoding:NSUTF8StringEncoding];
+    
+    return contextString;
+}
+
++ (BOOL)setLicense:(NSString *)license {
+    
+    MG_RETCODE contextCode = MG_RETCODE_FAILED;
+    
+    const char *tempStr =  [license cStringUsingEncoding:NSUTF8StringEncoding];
+    if (tempStr) {
+        contextCode = mg_licmgr.SetLicence(tempStr, (int32_t)license.length);
+    }
+    if (contextCode == MG_RETCODE_OK) {
+        return YES;
+    }
+    return NO;
 }
 
 + (NSString *)percentEscapeString:(NSString *)string {
