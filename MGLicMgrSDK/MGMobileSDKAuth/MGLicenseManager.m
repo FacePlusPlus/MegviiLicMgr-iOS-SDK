@@ -46,7 +46,7 @@
                                  @"api_secret":apiSecret,
                                  @"auth_duration": durationStr,
                                  @"sdk_type":sdkStr};
-//    MG_LICENSE_LOG(@"parameters = %@",parameters);
+    MG_LICENSE_LOG(@"parameters = %@",parameters);
     NSMutableArray *postArray = [NSMutableArray array];
     [parameters enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *obj, BOOL *stop) {
         [postArray addObject:[NSString stringWithFormat:@"%@=%@", key, [self percentEscapeString:obj]]];
@@ -69,9 +69,7 @@
                                                    completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                                                        BOOL success = NO;
                                                        NSError *returnError = nil;
-                                                       
-//                                                       NSInteger code = ((NSHTTPURLResponse *)response).statusCode;
-//                                                       MG_LICENSE_LOG(@"【%zi】 --%@ -- %@", code, response, error);
+
                                                        if (!error) {
                                                            NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
 
