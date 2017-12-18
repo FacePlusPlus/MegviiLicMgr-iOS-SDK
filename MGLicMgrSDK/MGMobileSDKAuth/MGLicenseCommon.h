@@ -24,13 +24,6 @@ static NSString *MGLicenseURL_CN = @"https://api-cn.faceplusplus.com/sdk/v2/auth
 static NSString *MGLicenseURL_US = @"https://api-us.faceplusplus.com/sdk/v2/auth";
 
 
-#define MG_LICENSE_DEBUG 1
-#if MG_LICENSE_DEBUG
-#define MG_LICENSE_LOG(FORMAT, ...) fprintf(stderr,"%s:%d   \t%s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
-#else
-#define NSLog(FORMAT, ...) nil
-#endif
-
 
 
 #endif /* MGLicenseCommon_h */

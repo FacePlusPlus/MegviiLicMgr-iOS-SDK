@@ -46,7 +46,7 @@
                                  @"api_secret":apiSecret,
                                  @"auth_duration": durationStr,
                                  @"sdk_type":sdkStr};
-    MG_LICENSE_LOG(@"parameters = %@",parameters);
+    NSLog(@"parameters = %@",parameters);
     NSMutableArray *postArray = [NSMutableArray array];
     [parameters enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *obj, BOOL *stop) {
         [postArray addObject:[NSString stringWithFormat:@"%@=%@", key, [self percentEscapeString:obj]]];
