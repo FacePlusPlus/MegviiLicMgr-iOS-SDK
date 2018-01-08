@@ -22,30 +22,23 @@
     return confromTimesp;
 }
 
-+ (NSURLSessionTask *)takeLicenseFromNetwokrUUID:(NSString *)UUID
-                                         version:(NSString *)version
-                                         sdkType:(MGSDKType)sdkType
-                                          apiKey:(NSString *)apiKey
-                                       apiSecret:(NSString *)apiSecret
-                                     apiDuration:(MGAPIDuration)duration
-                                       URLString:(NSString *)url
-                                          finish:(void(^)(bool License, NSError *error))complete{
++ (NSURLSessionTask *)getLicenseWithUUID:(NSString *)UUID
+                                 version:(NSString *)version
+                                  apiKey:(NSString *)apiKey
+                               apiSecret:(NSString *)apiSecret
+                             apiDuration:(MGAPIDuration)duration
+                               URLString:(NSString *)url
+                                  finish:(void(^)(bool License, NSError *error))complete {
 
     NSString *contextString = [MGLicenseManager getContextWithUUID:UUID version:version];
     
-    NSString *sdkStr = @"";
-    if (MGSDKTypeIDCard == sdkType) {
-        sdkStr = @"IDCard";
-    } else {
-        sdkStr = @"Landmark";
-    }
     NSString *durationStr = [NSString stringWithFormat:@"%ld",(long)duration];
     
     NSDictionary *parameters = @{@"auth_msg":contextString,
                                  @"api_key":apiKey,
                                  @"api_secret":apiSecret,
                                  @"auth_duration": durationStr,
-                                 @"sdk_type":sdkStr};
+                                 };
     NSLog(@"parameters = %@",parameters);
     NSMutableArray *postArray = [NSMutableArray array];
     [parameters enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *obj, BOOL *stop) {

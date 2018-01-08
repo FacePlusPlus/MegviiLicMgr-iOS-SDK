@@ -37,14 +37,13 @@
  @param complete 授权结束回调
  @return SessionTask
  */
-+ (NSURLSessionTask *)takeLicenseFromNetwokrUUID:(NSString *)UUID
-                                         version:(NSString *)version
-                                         sdkType:(MGSDKType)sdkType
-                                          apiKey:(NSString *)apiKey
-                                       apiSecret:(NSString *)apiSecret
-                                     apiDuration:(MGAPIDuration)duration
-                                       URLString:(NSString *)url
-                                          finish:(void(^)(bool License, NSError *error))complete;
++ (NSURLSessionTask *)getLicenseWithUUID:(NSString *)UUID
+                                 version:(NSString *)version
+                                  apiKey:(NSString *)apiKey
+                               apiSecret:(NSString *)apiSecret
+                             apiDuration:(MGAPIDuration)duration
+                               URLString:(NSString *)url
+                                  finish:(void(^)(bool License, NSError *error))complete;
 
 
 
